@@ -80,10 +80,41 @@ SettingsStack.navigationOptions = {
 
 SettingsStack.path = '';
 
+const VideoStack = createStackNavigator(
+  {
+    Links: LinksScreen,
+  },
+  config
+);
+VideoStack.navigationOptions = {
+  tabBarLabel: 'Vídeos',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+  ),
+};
+VideoStack.path = '';
+
+
+const PhotoStack = createStackNavigator(
+  {
+    Links: LinksScreen,
+  },
+  config
+);
+PhotoStack.navigationOptions = {
+  tabBarLabel: 'Fotos',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+  ),
+};
+PhotoStack.path = '';
+
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   PostsStack,
   LinksStack,
+  VideoStack,
+  PhotoStack,
   SettingsStack,
 });
 
